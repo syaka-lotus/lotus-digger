@@ -122,19 +122,19 @@ def update():
     # キャラクター移動処理
     new_x, new_y = x, y  # 仮の移動位置
 
-    if pyxel.btn(pyxel.KEY_UP):
+    if pyxel.btn(pyxel.KEY_UP) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_UP):
         new_y -= 1
         direction = 0  # 上向き
         # dig_block(new_x, new_y, direction)
-    elif pyxel.btn(pyxel.KEY_DOWN):
+    elif pyxel.btn(pyxel.KEY_DOWN) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN):
         new_y += 1
         direction = 2  # 下向き
         # dig_block(new_x, new_y, direction)
-    elif pyxel.btn(pyxel.KEY_LEFT):
+    elif pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT):
         new_x -= 1
         direction = 3  # 左向き
         # dig_block(new_x, new_y, direction)
-    elif pyxel.btn(pyxel.KEY_RIGHT):
+    elif pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):
         new_x += 1
         direction = 1  # 右向き
         # dig_block(new_x, new_y, direction)
@@ -145,11 +145,11 @@ def update():
         y = max(0, min(new_y, HEIGHT - CHAR_SIZE))
 
     # 水掛け判定
-    if pyxel.btn(pyxel.KEY_SPACE):
+    if pyxel.btn(pyxel.KEY_SPACE) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_A):
         dig_block(x, y, direction)
 
     # 収穫判定
-    if pyxel.btn(pyxel.KEY_B):
+    if pyxel.btn(pyxel.KEY_B) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_B):
         get_lotus(x, y, direction)
 
 
